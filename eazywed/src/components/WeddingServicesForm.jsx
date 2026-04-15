@@ -61,7 +61,7 @@ const WeddingServicesForm = () => {
         id: "cities_covered",
         label: "Cities Covered *",
         type: "text",
-        placeholder: "e.g., Mumbai, Delhi",
+        placeholder: "e.g., Lucknow, Gorakhpur",
         required: true,
       },
       {
@@ -155,7 +155,7 @@ const WeddingServicesForm = () => {
         id: "cities_covered",
         label: "Cities Covered *",
         type: "text",
-        placeholder: "e.g., Mumbai, Delhi",
+        placeholder: "e.g., Lucknow, Gorakhpur",
         required: true,
       },
       {
@@ -196,7 +196,7 @@ const WeddingServicesForm = () => {
         id: "cities_covered",
         label: "Cities Covered *",
         type: "text",
-        placeholder: "e.g., Mumbai, Delhi",
+        placeholder: "e.g., Lucknow, Gorakhpur",
         required: true,
       },
       {
@@ -626,9 +626,10 @@ const WeddingServicesForm = () => {
               required
             >
               <option value="">Select City</option>
-              <option value="Mumbai">Mumbai</option>
-              <option value="Delhi">Delhi</option>
-              <option value="Bangalore">Bangalore</option>
+              <option value="Lucknow">Lucknow</option>
+              <option value="Gorakhpur">Gorakhpur</option>
+              <option value="Varanasi">Varanasi</option>
+              <option value="Agra">Agra</option>
             </select>
           </div>
 
@@ -690,7 +691,7 @@ const WeddingServicesForm = () => {
               value={formData.address}
               onChange={handleChange}
               required
-              placeholder="e.g., 123 Main St, Mumbai"
+              placeholder="e.g., 123 Main St, Lucknow"
             />
           </div>
 
