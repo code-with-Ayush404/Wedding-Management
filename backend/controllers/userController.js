@@ -11,7 +11,7 @@ export const signIn = async (req, res) => {
   const { phone } = req.body
 
   if (!phone) return res.status(400).json({ message: "Phone is required" })
-  if (!/^\+923[0-4][0-9]{8}$/.test(phone)) return res.status(400).json({ message: "Invalid Pakistani phone number" })
+  if (!/^\+91[6-9][0-9]{9}$/.test(phone)) return res.status(400).json({ message: "Invalid Indian phone number" })
 
   try {
     const user = await User.findOne({ phone })
@@ -102,7 +102,7 @@ export const signUp = async (req, res) => {
   const { full_name, phone } = req.body
 
   if (!full_name || !phone) return res.status(400).json({ message: "Full name and phone are required" })
-  if (!/^\+923[0-4][0-9]{8}$/.test(phone)) return res.status(400).json({ message: "Invalid Pakistani phone number" })
+  if (!/^\+91[6-9][0-9]{9}$/.test(phone)) return res.status(400).json({ message: "Invalid Indian phone number" })
 
   try {
     const existingUser = await User.findOne({ phone })
@@ -161,7 +161,7 @@ export const verifySignUpOtp = async (req, res) => {
     otpRecord.verified = true
     await otpRecord.save()
 
-    const username = `user${phone.replace("+", "")}` // e.g., +923000000003 -> user923000000003
+    const username = `user${phone.replace("+", "")}` // e.g., +919000000003 -> user919000000003
     const user = await User.create({
       full_name,
       phone,
@@ -199,7 +199,7 @@ export const registerVendor = async (req, res) => {
       missing: { phone: !phone, password: !password, category: !vendorRequest?.category },
     })
   }
-  if (!/^\+923[0-4][0-9]{8}$/.test(phone)) return res.status(400).json({ message: "Invalid Pakistani phone number" })
+  if (!/^\+91[6-9][0-9]{9}$/.test(phone)) return res.status(400).json({ message: "Invalid Indian phone number" })
   if (password.length < 8) return res.status(400).json({ message: "Password must be at least 8 characters" })
 
   if (!brand_icon) return res.status(400).json({ message: "Brand icon is required" })
@@ -333,7 +333,7 @@ export const verifyVendorOtp = async (req, res) => {
       return res.status(400).json({ message: "Brand icon data missing from OTP record" })
     }
 
-    const username = `user${phone.replace("+", "")}` // e.g., +923000000003 -> user923000000003
+    const username = `user${phone.replace("+", "")}` // e.g., +919000000003 -> user919000000003
 
     if (user) {
       if (user.vendorRequest.status === "approved") return res.status(400).json({ message: "Already a vendor" })
