@@ -40,7 +40,6 @@ const WeddingServicesForm = () => {
   })
 
   const categoryFields = {
-    // Same as provided, unchanged
     Photographers: [
       {
         id: "expertise",
@@ -62,7 +61,7 @@ const WeddingServicesForm = () => {
         id: "cities_covered",
         label: "Cities Covered *",
         type: "text",
-        placeholder: "e.g., Lahore, Islamabad",
+        placeholder: "e.g., Mumbai, Delhi",
         required: true,
       },
       {
@@ -156,7 +155,7 @@ const WeddingServicesForm = () => {
         id: "cities_covered",
         label: "Cities Covered *",
         type: "text",
-        placeholder: "e.g., Lahore, Islamabad",
+        placeholder: "e.g., Mumbai, Delhi",
         required: true,
       },
       {
@@ -197,7 +196,7 @@ const WeddingServicesForm = () => {
         id: "cities_covered",
         label: "Cities Covered *",
         type: "text",
-        placeholder: "e.g., Lahore, Islamabad",
+        placeholder: "e.g., Mumbai, Delhi",
         required: true,
       },
       {
@@ -459,7 +458,7 @@ const WeddingServicesForm = () => {
     }
 
     if (!formData.price_range || !/^\d+-\d+$/.test(formData.price_range)) {
-      toast.error("Price range must be in the format min-max (e.g., 1000-3000)")
+      toast.error("Price range must be in the format min-max (e.g., 10000-30000)")
       return false
     }
 
@@ -627,9 +626,9 @@ const WeddingServicesForm = () => {
               required
             >
               <option value="">Select City</option>
-              <option value="Lahore">Lahore</option>
-              <option value="Karachi">Karachi</option>
-              <option value="Islamabad">Islamabad</option>
+              <option value="Mumbai">Mumbai</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Bangalore">Bangalore</option>
             </select>
           </div>
 
@@ -691,7 +690,7 @@ const WeddingServicesForm = () => {
               value={formData.address}
               onChange={handleChange}
               required
-              placeholder="e.g., 123 Main St, Lahore"
+              placeholder="e.g., 123 Main St, Mumbai"
             />
           </div>
 
@@ -729,7 +728,7 @@ const WeddingServicesForm = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="price_range">Price Range (PKR, e.g., 1000-3000) *</label>
+            <label htmlFor="price_range">Price Range (INR, e.g., 10000-30000) *</label>
             <input
               type="text"
               id="price_range"
@@ -737,7 +736,7 @@ const WeddingServicesForm = () => {
               value={formData.price_range}
               onChange={handleChange}
               required
-              placeholder="e.g., 1000-3000"
+              placeholder="e.g., 10000-30000"
             />
           </div>
 
@@ -850,7 +849,7 @@ const WeddingServicesForm = () => {
                   />
                 </div>
                 <div className="form-group">
-                  <label>Price (PKR)</label>
+                  <label>Price (INR)</label>
                   <input
                     type="number"
                     value={pkg.price}
