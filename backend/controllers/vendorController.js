@@ -445,10 +445,10 @@ export const getVendorBookings = async (req, res) => {
       .skip(skip)
       .limit(limit);
     
-    const formattedBookings = bookings.map((booking) => ({
-      booking_id: booking._id,
-      service_id: booking.service_id,
-      service_name: booking.service_id?.name || booking.card_template_id?.name || `${booking.card_template_id?.type?.charAt(0).toUpperCase() + (booking.card_template_id?.type?.slice(1) || '')} Card Template`,
+   const formattedBookings = bookings.map((booking) => ({
+  booking_id: booking._id,
+  service_id: booking.service_id,
+  service_name: booking.service_id?.name || booking.card_template_id?.name || `${booking.card_template_id?.type?.charAt(0).toUpperCase() + (booking.card_template_id?.type?.slice(1) || '')} Card`,
       user_id: booking.user_id._id,
       user_name: booking.user_id.full_name,
       user_phone: booking.user_id.phone,
